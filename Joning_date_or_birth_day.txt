@@ -1,0 +1,7 @@
+select sysdate,'02-DEC-1990' JOIN_DATE,
+  trunc(months_between(sysdate,'02-DEC-1990') / 12) as years,
+  trunc(months_between(sysdate,'02-DEC-1990') -
+    (trunc(months_between(sysdate,'02-DEC-1990') / 12) * 12)) as months,
+  trunc(sysdate)
+    - add_months('02-DEC-1990', trunc(months_between(sysdate,'02-DEC-1990'))) as days
+from DUAL;
